@@ -1,0 +1,224 @@
+# 小池さんから頂いた感情分析のサーベイ
+@article{emotion_analysis_survay,
+  title    = {Vector based sentiment and emotion analysis from text: A survey},
+  journal  = {Engineering Applications of Artificial Intelligence},
+  volume   = {113},
+  pages    = {104922},
+  year     = {2022},
+  issn     = {0952-1976},
+  doi      = {https://doi.org/10.1016/j.engappai.2022.104922},
+  url      = {https://www.sciencedirect.com/science/article/pii/S0952197622001452},
+  author   = {Hande {Aka Uymaz} and Senem {Kumova Metin}},
+  keywords = {Emotion, Sentiment, Vector space, Embedding, Emotion enriched vectors},
+  abstract = {As a primary means of communication, texts are used to implicitly or explicitly reflect emotions. Emotion or sentiment detection from text has emerged as an important and expanding research area to more clearly understand the actual feelings of humans. Most of the word representation models, such as Word2Vec or GloVe, project the words in vector space such that if words have similar context, then their representations are also very similar. However, according to the recent studies, this approach limits the success of studies in areas such as emotion detection. For instance, love and happy are emotionally similar words, but they may have a lower similarity score than emotionally dissimilar word such as happy and sad which have high co-occurrence frequency, as they are in similar contexts. Recently, researchers propose some methods based on the addition of emotional or sentimental information to the original word vectors. These have improved the vector representation of words and achieved better results in emotion detection or classification tasks. In this survey, we analyze in detail such recent text-based studies in the literature. We summarize their methods used, emotion models, data sources, findings, and performances.}
+}
+
+# ekmanの感情モデル
+@article{ekman,
+  author    = { Paul   Ekman },
+  title     = {An argument for basic emotions},
+  journal   = {Cognition and Emotion},
+  volume    = {6},
+  number    = {3-4},
+  pages     = {169-200},
+  year      = {1992},
+  publisher = {Routledge},
+  doi       = {10.1080/02699939208411068},
+  url       = { 
+               https://doi.org/10.1080/02699939208411068
+               },
+  eprint    = {  
+               https://doi.org/10.1080/02699939208411068
+               }
+}
+
+# BERTの元論文
+@misc{BERT,
+  doi       = {10.48550/ARXIV.1810.04805},
+  url       = {https://arxiv.org/abs/1810.04805},
+  author    = {Devlin, Jacob and Chang, Ming-Wei and Lee, Kenton and Toutanova, Kristina},
+  keywords  = {Computation and Language (cs.CL), FOS: Computer and information sciences, FOS: Computer and information sciences},
+  title     = {BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding},
+  publisher = {arXiv},
+  year      = {2018},
+  copyright = {arXiv.org perpetual, non-exclusive license}
+}
+
+# Plutchikの感情モデル
+@article{plutchik,
+  author  = {Robert Plutchik},
+  title   = {A psychoevolutionary theory of emotions},
+  journal = {Social Science Information},
+  volume  = {21},
+  number  = {4-5},
+  pages   = {529-553},
+  year    = {1982},
+  doi     = {10.1177/053901882021004003},
+  url     = { 
+             https://doi.org/10.1177/053901882021004003
+             },
+  eprint  = { 
+             https://doi.org/10.1177/053901882021004003
+             }
+}
+
+# 感情表現辞典
+@book{kanjou_hyogen_jiten,
+  author    = {中村 明},
+  title     = {感情表現辞典},
+  publisher = {東京堂出版},
+  year      = {1993}
+}
+
+
+@article{emotion_model_1,
+  author  = {Calvo, Rafael and Kim, Sunghwan},
+  year    = {2012},
+  month   = {09},
+  pages   = {},
+  title   = {Emotions in text: Dimensional and categorical models},
+  volume  = {early view},
+  journal = {Computational Intelligence},
+  doi     = {10.1111/j.1467-8640.2012.00456.x}
+}
+
+@article{emotion_model_2,
+  author  = {P S, SREEJA and G S, Mahalakshmi},
+  year    = {2017},
+  month   = {01},
+  pages   = {651-657},
+  title   = {Emotion Models: A Review},
+  volume  = {10},
+  journal = {International Journal of Control Theory and Applications}
+}
+
+@article{russell_2D,
+  author  = {Russell, James},
+  year    = {1980},
+  month   = {12},
+  pages   = {1161-1178},
+  title   = {A Circumplex Model of Affect},
+  volume  = {39},
+  journal = {Journal of Personality and Social Psychology},
+  doi     = {10.1037/h0077714}
+}
+
+@article{russell_3D,
+  title    = {Evidence for a three-factor theory of emotions},
+  journal  = {Journal of Research in Personality},
+  volume   = {11},
+  number   = {3},
+  pages    = {273-294},
+  year     = {1977},
+  issn     = {0092-6566},
+  doi      = {https://doi.org/10.1016/0092-6566(77)90037-X},
+  url      = {https://www.sciencedirect.com/science/article/pii/009265667790037X},
+  author   = {James A Russell and Albert Mehrabian},
+  abstract = {Two studies provided evidence that three independent and bipolar dimensions, pleasure-displeasure, degree of arousal, and dominance-submissiveness, are both necessary and sufficient to adequately define emotional states. In one study with 200 subjects, 42 verbal-report emotion scales were explored in regression analyses as functions of the three dimensions plus a measure of acquiescence bias. Multiple correlation coefficients showed that almost all of the reliable variance in the 42 scales had been accounted for. The specific definitions provided by these equations were replicated in a second study that employed 300 subjects' ratings of 151 emotion-denoting terms on semantic differential-type scales.}
+}
+
+@misc{word2vec,
+  doi       = {10.48550/ARXIV.1301.3781},
+  url       = {https://arxiv.org/abs/1301.3781},
+  author    = {Mikolov, Tomas and Chen, Kai and Corrado, Greg and Dean, Jeffrey},
+  keywords  = {Computation and Language (cs.CL), FOS: Computer and information sciences, FOS: Computer and information sciences},
+  title     = {Efficient Estimation of Word Representations in Vector Space},
+  publisher = {arXiv},
+  year      = {2013},
+  copyright = {arXiv.org perpetual, non-exclusive license}
+}
+
+@inproceedings{glove,
+  author    = {Jeffrey Pennington and Richard Socher and Christopher D. Manning},
+  booktitle = {Empirical Methods in Natural Language Processing (EMNLP)},
+  title     = {GloVe: Global Vectors for Word Representation},
+  year      = {2014},
+  pages     = {1532--1543},
+  url       = {http://www.aclweb.org/anthology/D14-1162}
+}
+
+@article{takeuchi,
+  title   = {単語の持つ感情推定法の提案と単語感情辞書の構築},
+  author  = {武内 達哉，萩原 将文},
+  journal = {日本感性工学会論文誌},
+  volume  = {18},
+  number  = {4},
+  pages   = {273-278},
+  year    = {2019},
+  doi     = {10.5057/jjske.TJSKE-D-18-00104}
+}
+
+@inproceedings{mecab,
+  title     = {Applying Conditional Random Fields to {J}apanese Morphological Analysis},
+  author    = {Kudo, Taku  and
+               Yamamoto, Kaoru  and
+               Matsumoto, Yuji},
+  booktitle = {Proceedings of the 2004 Conference on Empirical Methods in Natural Language Processing},
+  month     = jul,
+  year      = {2004},
+  address   = {Barcelona, Spain},
+  publisher = {Association for Computational Linguistics},
+  url       = {https://aclanthology.org/W04-3230},
+  pages     = {230--237}
+}
+
+@misc{attention,
+  doi       = {10.48550/ARXIV.1706.03762},
+  url       = {https://arxiv.org/abs/1706.03762},
+  author    = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N. and Kaiser, Lukasz and Polosukhin, Illia},
+  keywords  = {Computation and Language (cs.CL), Machine Learning (cs.LG), FOS: Computer and information sciences, FOS: Computer and information sciences},
+  title     = {Attention Is All You Need},
+  publisher = {arXiv},
+  year      = {2017},
+  copyright = {arXiv.org perpetual, non-exclusive license}
+}
+
+@book{pytorch_advanced,
+  author    = {小川 雄太郎},
+  title     = {つくりながら学ぶ! PyTorchによる発展ディープラーニング},
+  publisher = {マイナビ出版},
+  year      = {2019}
+}
+
+@article{spin_kyokusei,
+  author    = {高村 大也，乾 孝司，奥村 学},
+  title     = {スピンモデルによる単語の感情極性抽出},
+  journal   = {情報処理学会論文誌},
+  issn      = {1882-7764},
+  publisher = {一般社団法人情報処理学会},
+  year      = {2006},
+  month     = {02},
+  volume    = {47},
+  number    = {2},
+  pages     = {627-637},
+  url       = {https://cir.nii.ac.jp/crid/1050001337882589440}
+}
+
+@inproceedings{kajiwara-wrime,
+  title     = {{WRIME}: A New Dataset for Emotional Intensity Estimation with Subjective and Objective Annotations},
+  author    = {Kajiwara, Tomoyuki  and
+               Chu, Chenhui  and
+               Takemura, Noriko  and
+               Nakashima, Yuta  and
+               Nagahara, Hajime},
+  booktitle = {Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies},
+  month     = jun,
+  year      = {2021},
+  address   = {Online},
+  publisher = {Association for Computational Linguistics},
+  url       = {https://aclanthology.org/2021.naacl-main.169},
+  doi       = {10.18653/v1/2021.naacl-main.169},
+  pages     = {2095--2104},
+  abstract  = {We annotate 17,000 SNS posts with both the writer{'}s subjective emotional intensity and the reader{'}s objective one to construct a Japanese emotion analysis dataset. In this study, we explore the difference between the emotional intensity of the writer and that of the readers with this dataset. We found that the reader cannot fully detect the emotions of the writer, especially anger and trust. In addition, experimental results in estimating the emotional intensity show that it is more difficult to estimate the writer{'}s subjective labels than the readers{'}. The large gap between the subjective and objective emotions imply the complexity of the mapping from a post to the subjective emotion intensities, which also leads to a lower performance with machine learning models.}
+}
+
+@misc{Adam,
+  doi       = {10.48550/ARXIV.1412.6980},
+  url       = {https://arxiv.org/abs/1412.6980},
+  author    = {Kingma, Diederik P. and Ba, Jimmy},
+  keywords  = {Machine Learning (cs.LG), FOS: Computer and information sciences, FOS: Computer and information sciences},
+  title     = {Adam: A Method for Stochastic Optimization},
+  publisher = {arXiv},
+  year      = {2014},
+  copyright = {arXiv.org perpetual, non-exclusive license}
+}
