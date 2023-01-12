@@ -52,10 +52,72 @@
 		BERT Layerを通すことにより，Transformerによる周りの単語の影響を加味することになる．
 		今回設定したベースラインではEmbedding Layerによる
 		分散表現を利用することで周辺単語の影響が含まれないことになる．
-		また、感性語の周辺単語に与える感情ベクトルを距離に応じて重み付けした
+		また、感性語の周辺単語に与える感情ベクトルについて
+		距離に応じた重み付けを行うことによる効果を確認するため，
+		重み付けを行うBERT+weight，行わないBERTに分けて実験を行う．
 
 \section{感情ベクトルの生成例}
-(いくつか画像を添付)
+	入力文に対する各単語の感情ベクトル出力例を以下に示す．
+	\subsection{「仕事は人生を豊かにしてくれる．」に対する出力}
+		\begin{figure}[H]
+			\begin{tabular}{cc}
+				\begin{minipage}[t]{0.45\hsize}
+					\centering
+					\includegraphics[keepaspectratio, scale=0.45]{./figure/output/Q01/001.png}
+					\subcaption{「仕事」に対する感情ベクトル}
+				\end{minipage} &
+				\begin{minipage}[t]{0.45\hsize}
+					\centering
+					\includegraphics[keepaspectratio, scale=0.45]{./figure/output/Q01/002.png}
+					\subcaption{「人生」に対する感情ベクトル}
+				\end{minipage} \\
+				\begin{minipage}[t]{0.45\hsize}
+					\centering
+					\includegraphics[keepaspectratio, scale=0.45]{./figure/output/Q01/003.png}
+					\subcaption{「豊か」に対する感情ベクトル}
+				\end{minipage} &
+				\begin{minipage}[t]{0.45\hsize}
+					\centering
+					\includegraphics[keepaspectratio, scale=0.45]{./figure/output/Q01/004.png}
+					\subcaption{「くれる」に対する感情ベクトル}
+				\end{minipage} \\
+			\end{tabular}
+			\caption{「仕事は人生を豊かにしてくれる．」に対する各単語の感情ベクトル}
+			\label{fig:output_ex01}
+		\end{figure}
+
+		\subsection{「仕事は面倒だし、疲れるから嫌だ。」に対する出力}
+		\begin{figure}[H]
+			\begin{tabular}{cc}
+				\begin{minipage}[t]{0.45\hsize}
+					\centering
+					\includegraphics[keepaspectratio, scale=0.45]{./figure/output/Q02/001.png}
+					\subcaption{「仕事」に対する感情ベクトル}
+				\end{minipage} &
+				\begin{minipage}[t]{0.45\hsize}
+					\centering
+					\includegraphics[keepaspectratio, scale=0.45]{./figure/output/Q02/002.png}
+					\subcaption{「面倒」に対する感情ベクトル}
+				\end{minipage} \\
+				\begin{minipage}[t]{0.45\hsize}
+					\centering
+					\includegraphics[keepaspectratio, scale=0.45]{./figure/output/Q02/003.png}
+					\subcaption{「疲れる」に対する感情ベクトル}
+				\end{minipage} &
+				\begin{minipage}[t]{0.45\hsize}
+					\centering
+					\includegraphics[keepaspectratio, scale=0.45]{./figure/output/Q02/004.png}
+					\subcaption{「嫌」に対する感情ベクトル}
+				\end{minipage} \\
+			\end{tabular}
+			\caption{「仕事は面倒だし、疲れるから嫌だ．」に対する各単語の感情ベクトル}
+			\label{fig:output_ex02}
+		\end{figure}
+
+		図\ref{fig:output_ex01}ではポジティブな文脈で「仕事」という単語を用いているのに対し，
+		図\ref{fig:output_ex02}ではネガティブな文脈で「仕事」という単語を用いている.
+		それぞれの「仕事」に対する感情ベクトルを比較すると，
+		文脈に応じてその出力が変化していることがわかる．
 
 \section{単語の感情推定の妥当性に関する評価実験}
 	\subsection{実験設定}
