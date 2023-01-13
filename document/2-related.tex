@@ -274,13 +274,27 @@
 		一対一で対応した分散表現であるが，
 		Bert Layerを繰り返し通すことで，
 		この分散表現が周囲の単語の影響を受けながら変化していくことになる．
-		各文章の"bank"に対応する出力ベクトルの間でコサイン類似度を算出すると以下のようになる．
-		\begin{itemize}
-			\item 文1の"bank"と文2の"bank"の類似度 : 0.8796
-			\par (どちらも「銀行口座」の意味)
-			\item 文1の"bank"と文3の"bank"の類似度 : 0.4814
-			\par (文1は「銀行口座」，文3は「土手」の意味)
-		\end{itemize}
+		各文章の"bank"に対応する出力ベクトルの間でコサイン類似度を算出すると
+		以下の表\ref{table:bank_compare}のようになる．
+		\begin{table}[H]
+			\centering
+			\label{table:bank_compare}
+			\caption{各文章の"bank"についての出力ベクトルの類似度比較}
+			\begin{tabular}[H]{c|c}
+				\hline
+				& cos類似度 \\
+				\hline \hline
+				文1と文2(同じ意味) & 0.8796 \\
+				文1と文3(異なる意味) & 0.4814\\
+				\hline
+			\end{tabular}
+		\end{table}
+		% \begin{itemize}
+		% 	\item 文1の"bank"と文2の"bank"の類似度 : 0.8796
+		% 	\par (どちらも「銀行口座」の意味)
+		% 	\item 文1の"bank"と文3の"bank"の類似度 : 0.4814
+		% 	\par (文1は「銀行口座」，文3は「土手」の意味)
+		% \end{itemize}
 		
 		このように，"bank"という単語を異なる文章で用いたとしても，
 		同じ意味で用いているもの同士であれば，出力ベクトルは類似した出力となる．
