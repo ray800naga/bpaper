@@ -36,10 +36,6 @@
 		\end{figure}
 		中間層の活性化関数はReLU関数とし，
 		出力層にsigmoid層を通すことにより，0以上1以下の値に変換する．
-		sigmoid関数は以下の式で示される．
-		\begin{equation}
-			f(x)=\frac{1}{1+e^{-x}}
-		\end{equation}
 		この時，出力された10次元のベクトルが，データセットに与えられた
 		感情ベクトルに近づくよう学習を行うことになる．
 		損失関数は最小二乗誤差とし，Adamにより学習率$1\times10^{-3}$で最適化を行った．
@@ -86,7 +82,7 @@
 			\label{fig:output_ex01}
 		\end{figure}
 
-		\subsection{「仕事は面倒だし、疲れるから嫌だ。」に対する出力}
+	\subsection{「仕事は面倒だし、疲れるから嫌だ。」に対する出力}
 		\begin{figure}[H]
 			\begin{tabular}{cc}
 				\begin{minipage}[t]{0.45\hsize}
@@ -165,19 +161,49 @@
 		このような流れでまとめていこうと考えています．
 		\begin{table}[H]
 			\centering
-			\caption{単語の種類別で分けた実験1のTop-k精度}
-			\label{table:top-k_cos-sim_hinshi}
-				\begin{tabular}{ccccccc}
+			\caption{単語の種類別で分けた実験1のTop-1精度}
+			\label{table:top-1_hinshi}
+				\begin{tabular}{cccc}
 					\hline
-					& \multicolumn{3}{c}{\textbf{Top-1}} & \multicolumn{3}{c}{\textbf{Top-3}} \\
-					& 一般単語 & 感性語 & 感性多義語 & 一般単語 & 感性語 & 感性多義語 \\
+					& 一般単語 & 感性語 & 感性多義語 \\
 					\hline \hline
-					BERT+weight & \textbf{27.78}\% & \textbf{61.11}\% & 23.53\% & \textbf{58.33}\% & \textbf{77.78}\% & 55.88\% \\
-					BERT & 25.00\% & \textbf{61.11}\% & \textbf{38.24}\% & \textbf{58.33}\% & \textbf{77.78}\% & \textbf{67.65}\% \\
-					embedding & 11.11\% & 50.00\% & 29.41\% & 33.33\% & 72.22\% & 64.71\% \\
-				\hline
+					BERT+weight & \textbf{27.78}\% & \textbf{61.11}\% & 23.53\% \\
+					BERT & 25.00\% & \textbf{61.11}\% & \textbf{38.24}\% \\
+					embedding & 11.11\% & 50.00\% & 29.41\% \\
+					\hline
 				\end{tabular}
 		\end{table}
+
+		\begin{table}[H]
+			\centering
+			\caption{単語の種類別で分けた実験1のTop-3精度}
+			\label{table:top3_hinshi}
+				\begin{tabular}{cccc}
+					\hline
+					& 一般単語 & 感性語 & 感性多義語 \\
+					\hline \hline
+					BERT+weight & \textbf{58.33}\% & \textbf{77.78}\% & 55.88\% \\
+					BERT & \textbf{58.33}\% & \textbf{77.78}\% & \textbf{67.65}\% \\
+					embedding & 33.33\% & 72.22\% & 64.71\% \\
+					\hline
+				\end{tabular}
+		\end{table}
+
+		\begin{table}[H]
+			\centering
+			\caption{単語の種類別で分けた実験1のコサイン類似度}
+			\label{table:cos_sim_hinshi}
+				\begin{tabular}{cccc}
+					\hline
+					& 一般単語 & 感性語 & 感性多義語 \\
+					\hline \hline
+					BERT+weight & \textbf{0.608} & \textbf{0.728} & 0.555 \\
+					BERT & 0.595 & 0.715 & \textbf{0.567} \\
+					embedding & 0.521 & 0.663 & 0.538 \\
+					\hline
+				\end{tabular}
+		\end{table}
+
 
 		単語の種類別で精度を出した時の特徴についてもまとめていこうと考えています．
 
