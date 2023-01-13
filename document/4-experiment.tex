@@ -14,17 +14,31 @@
 		データセット生成のためのテキストデータには
 		Wikipedia\cite{wikipedia}のテキストに前処理を施した状態で公開されている
 		Wiki-40B\cite{wiki-40b}データセットの日本語版を用いる．
-		1文ずつに分割したとき，Wiki-40Bデータセットに含まれる文章の数は，
-		$Train/Val/Test=12,330,278/677,757/678,490$となった．
-		これらのうち，感性語を含む文は
-		$Train/Val/Test=2,337,909/128,126/128,698$となった．
+		1文ずつに分割し，感性語を含む文章のみを抽出した．
+		それぞれの文章の数は以下の表\ref{table:wiki40b_sentence}のとおりである．
+		\begin{table}[H]
+			\centering
+			\caption{wiki-40bデータセットから得られる文章の数}
+			\label{table:wiki40b_sentence}
+			\begin{tabular}{cccc}
+				\hline
+				& Train & Val & Test \\
+				\hline \hline
+				全文章 & 12,330,278 & 677,757 & 678,490 \\
+				感性語を含む文章 & 2,337,909 & 128,126 & 128,698 \\
+				\hline
+			\end{tabular}
+		\end{table}
+		% $Train/Val/Test=12,330,278/677,757/678,490$となった．
+		% これらのうち，感性語を含む文は
+		% $Train/Val/Test=2,337,909/128,126/128,698$となった．
 		本実験では，ウィンドウサイズ$W=3$とし，感性語の周辺単語を収集した．
 		このBERTが出力した分散表現と感情ベクトルがペアになった
 		データセットのサイズは，
 		$Train/Val/Test=20,154,529/1,104,904/1,108,482$
 		となった．
 		なお，用いたBERTモデルはHugging Face\cite{huggingface}で東北大学が公開している
-		cl-tohoku/bert-base-japanese-whole-word-masking\cite{cl-tohoku}を用いた．
+		cl-tohoku/bert-base-japanese-whole-word-masking\cite{cl-tohoku}である．
 
 	\subsection{ニューラルネットワークの学習条件}
 		入力が768次元の単語分散表現で，出力が10次元の感情ベクトルとなる．
