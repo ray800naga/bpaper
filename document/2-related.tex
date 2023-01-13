@@ -37,7 +37,7 @@
 			図\ref{fig:plutchik}は，このモデルを図式化したものである．
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=\linewidth]{./figure/plutchik.png}
+				\includegraphics[width=90mm]{./figure/plutchik.png}
 				\caption{Plutchikの感情の輪}
 				\label{fig:plutchik}
 			\end{figure}
@@ -48,7 +48,7 @@
 			図\ref{fig:russel_2D}は，このモデルを図式化したものである．
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=\linewidth]{./figure/russell.png}
+				\includegraphics[width=90mm]{./figure/russell.png}
 				\caption{Russellのモデル}
 				\label{fig:russel_2D}
 			\end{figure}
@@ -61,8 +61,8 @@
 	コンピュータは，入力された単語をテキスト情報のまま処理することができない．
 	それをかなえるためには，単語のベクトル化が必要となる．
 
-	\subsection{1-hotベクトル}
-		1-hotベクトルとは，最も単純な単語のベクトル表現方法である．
+	\subsection{one-hotベクトル}
+		one-hotベクトルとは，最も単純な単語のベクトル表現方法である．
 		具体的には，語彙内の単語のインデックスに対応した成分だけが1となり，
 		その他の成分がすべて0となるようなベクトルである．
 		よって，次元数はシステムが扱う語彙数と同数となる．
@@ -73,14 +73,14 @@
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{./figure/one-hot-vector.png}
-			\caption{1-hotベクトルの概要}
+			\caption{one-hotベクトルの概要}
 			\label{fig:one-hot-vector}
 		\end{figure}
 
-		1-hotベクトルによる単語ベクトルの表現を行う上でのの問題点として，
+		one-hotベクトルによる単語ベクトルの表現を行う上でのの問題点として，
 		システムの扱う語彙数が増えることにより，単語ベクトルの次元数が同量増えてしまうことが挙げられる．
 		また，このような非常に次元の高いベクトルであるにもかかわらず，
-		ベクトル内の1成分だけが1となる．
+		ベクトル内の1成分だけが1で他の成分はすべて0となる．
 		よって，単語ベクトルが非常に疎なベクトルとなってしまうため，
 		消費するリソースのわりに得られる情報量が少ないということも挙げられる
 
@@ -133,8 +133,8 @@
 	\end{figure}
 
 	生成する分散表現の次元数を$d$，語彙数を$V$とすると，
-	入力は$V$次元の1-hotベクトル，入力と中間層の間の重みが$(V \times d)$の行列となる．
-	中間層は周囲の単語の分散表現の和となり，出力は入力同様に$V$次元の1-hotベクトルで
+	入力は$V$次元のone-hotベクトル，入力と中間層の間の重みが$(V \times d)$の行列となる．
+	中間層は周囲の単語の分散表現の和となり，出力は入力同様に$V$次元のone-hotベクトルで
 	中心の単語を出力するという形になる．
 	この予測が正しく行えるようにネットワークを学習することで，
 	分散表現が単語の意味情報を反映できるようになる．
@@ -157,7 +157,7 @@
 			\caption{データセット生成での単語収集の概要}
 			\label{fig:takeuchi_dataset}
 		\end{figure}
-		入力はそれぞれの単語に対する1-hotベクトルで，
+		入力はそれぞれの単語に対するone-hotベクトルで，
 		中間層は感情ベクトルと同じ10次元のベクトルとなる．
 		語彙数を$V$としたとき，入力層と中間層の間の重みは，$(V \times 10)$の行列で，
 		中間層は入力単語群から変換された10次元のベクトルの和となる．
