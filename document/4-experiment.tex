@@ -15,7 +15,7 @@
 		Wikipedia\cite{wikipedia}のテキストに前処理を施した状態で公開されている
 		Wiki-40B\cite{wiki-40b}データセットの日本語版を用いる．
 		1文ずつに分割し，感性語を含む文章のみを抽出した．
-		それぞれの文章の数は以下の表\ref{table:wiki40b_sentence}のとおりである．
+		それぞれの文章の数は以下の表\ref{table:wiki40b_sentence}の通りである．
 		\begin{table}[H]
 			\centering
 			\caption{wiki-40bデータセットから得られる文章の数}
@@ -35,8 +35,22 @@
 		本実験では，ウィンドウサイズ$W=3$とし，感性語の周辺単語を収集した．
 		このBERTが出力した分散表現と感情ベクトルがペアになった
 		データセットのサイズは，
-		$Train/Val/Test=20,154,529/1,104,904/1,108,482$
-		となった．
+		% $Train/Val/Test=20,154,529/1,104,904/1,108,482$
+		% となった．
+		以下の表\ref{table:bert_to_emo_size}の通りである．
+		\begin{table}[H]
+			\centering
+			\caption{wiki-40bデータセットから得られるデータセットのサイズ}
+			\label{table:bert_to_emo_size}
+			\begin{tabular}{ccc}
+				\hline
+				Train & Val & Test \\
+				\hline \hline
+				12,330,278 & 677,757 & 678,490 \\
+				2,337,909 & 128,126 & 128,698 \\
+				\hline
+			\end{tabular}
+		\end{table}
 		なお，用いたBERTモデルはHugging Face\cite{huggingface}で東北大学が公開している
 		cl-tohoku/bert-base-japanese-whole-word-masking\cite{cl-tohoku}である．
 
