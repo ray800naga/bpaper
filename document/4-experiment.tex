@@ -225,6 +225,12 @@
 					\hline
 				\end{tabular}
 		\end{table}
+
+		表\ref{table:top-k_cos-sim_all}について，
+		データの正規性を確認するためにShapiro-Wilk検定を行うと，
+		BERTで$p=0.01161<0.05$となることから，正規性がないとみなせる．
+		よって，3群の差の検定としてノンパラメトリック手法であるKruskal-Wallis検定を行った．
+		$p=0.116\geqq0.05$となり，3手法の間で結果に有意差はないとみなせる．
 		
 		\begin{table}[H]
 			\centering
@@ -240,6 +246,18 @@
 					\hline
 				\end{tabular}
 		\end{table}
+
+		表\ref{table:top-1_hinshi}について，
+		データの正規性を確認するためにShapiro-Wilk検定を行うと,
+		以下の表のようになる．
+
+		\begin{table}[H]
+			\centering
+			\caption{表\ref{table:top-1_hinshi}のデータに対するShapiro-Wilk検定の結果}
+			\label{table:SW_kentei_top-1_hinshi}
+			\begin{tabular}{ccc}
+				\hline
+				
 
 		\begin{table}[H]
 			\centering
