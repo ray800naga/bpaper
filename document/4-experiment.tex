@@ -211,83 +211,117 @@
 		\end{equation}
 
 	\subsection{実験結果}
-		\begin{table}[H]
-			\centering
-			\caption{実験1の結果}
-			\label{table:top-k_cos-sim_all}
-				\begin{tabular}{cccc}
+		\subsubsection{全文章に対する結果}
+			\begin{table}[H]
+				\centering
+				\caption{実験1の結果}
+				\label{table:top-k_cos-sim_all}
+					\begin{tabular}{cccc}
+						\hline
+						& Top-1 & Top-3 & cos類似度 \\
+						\hline \hline
+						BERT+weight & 32.95\% & 61.36\% & \textbf{0.612} \\
+						BERT & \textbf{37.50}\% & \textbf{65.91}\% & 0.609 \\
+						embedding & 26.14\% & 53.41\% & 0.557\\
+						\hline
+					\end{tabular}
+			\end{table}
+
+			表\ref{table:top-k_cos-sim_all}のコサイン類似度について，
+			データの正規性を確認するためにShapiro-Wilk検定を行うと，
+			BERTで$p=0.01161<0.05$となることから，正規性がないとみなせる．
+			よって，3群の差の検定としてノンパラメトリック手法であるKruskal-Wallis検定を行った．
+			$p=0.116\geqq0.05$となり，3手法の間で結果に有意差はないとみなせる．
+			
+		\subsubsection{単語の種類別に分けたときの結果}
+			\begin{table}[H]
+				\centering
+				\caption{単語の種類別で分けた実験1のTop-1精度}
+				\label{table:top-1_hinshi}
+					\begin{tabular}{cccc}
+						\hline
+						& 一般単語 & 感性語 & 感性多義語 \\
+						\hline \hline
+						BERT+weight & \textbf{27.78}\% & \textbf{61.11}\% & 23.53\% \\
+						BERT & 25.00\% & \textbf{61.11}\% & \textbf{38.24}\% \\
+						embedding & 11.11\% & 50.00\% & 29.41\% \\
+						\hline
+					\end{tabular}
+			\end{table}
+
+			\begin{table}[H]
+				\centering
+				\caption{単語の種類別で分けた実験1のTop-3精度}
+				\label{table:top-3_hinshi}
+					\begin{tabular}{cccc}
+						\hline
+						& 一般単語 & 感性語 & 感性多義語 \\
+						\hline \hline
+						BERT+weight & \textbf{58.33}\% & \textbf{77.78}\% & 55.88\% \\
+						BERT & \textbf{58.33}\% & \textbf{77.78}\% & \textbf{67.65}\% \\
+						embedding & 33.33\% & 72.22\% & 64.71\% \\
+						\hline
+					\end{tabular}
+			\end{table}
+
+			\begin{table}[H]
+				\centering
+				\caption{単語の種類別で分けた実験1のコサイン類似度}
+				\label{table:cos_sim_hinshi}
+					\begin{tabular}{cccc}
+						\hline
+						& 一般単語 & 感性語 & 感性多義語 \\
+						\hline \hline
+						BERT+weight & \textbf{0.608} & \textbf{0.728} & 0.555 \\
+						BERT & 0.595 & 0.715 & \textbf{0.567} \\
+						embedding & 0.521 & 0.663 & 0.538 \\
+						\hline
+					\end{tabular}
+			\end{table}
+
+			表\ref{table:cos_sim_hinshi}について，
+			単語の各種類毎に手法による差の検定を行った．
+			\vskip \baselineskip
+			まず一般単語について検定を行う．
+			データ数は36である．
+			正規性を確認するためにShapiro-Wilk検定を行うと,
+			以下の表\ref{table:SW_kentei_normal}のようになる．
+
+			\begin{table}[H]
+				\centering
+				\caption{Shapiro-Wilk検定の結果}
+				\label{table:SW_kentei_normal}
+				\begin{tabular}{|c|c|}
 					\hline
-					& Top-1 & Top-3 & cos類似度 \\
-					\hline \hline
-					BERT+weight & 32.95\% & 61.36\% & \textbf{0.612} \\
-					BERT & \textbf{37.50}\% & \textbf{65.91}\% & 0.609 \\
-					embedding & 26.14\% & 53.41\% & 0.557\\
+					手法 & $p$の値 \\
+					\hline
+					BERT+weight & 0.1691 \\
+					BERT & 0.07995 \\
+					embedding & 0.1390 \\
 					\hline
 				\end{tabular}
-		\end{table}
+			\end{table}
 
-		表\ref{table:top-k_cos-sim_all}について，
-		データの正規性を確認するためにShapiro-Wilk検定を行うと，
-		BERTで$p=0.01161<0.05$となることから，正規性がないとみなせる．
-		よって，3群の差の検定としてノンパラメトリック手法であるKruskal-Wallis検定を行った．
-		$p=0.116\geqq0.05$となり，3手法の間で結果に有意差はないとみなせる．
-		
-		\begin{table}[H]
-			\centering
-			\caption{単語の種類別で分けた実験1のTop-1精度}
-			\label{table:top-1_hinshi}
-				\begin{tabular}{cccc}
-					\hline
-					& 一般単語 & 感性語 & 感性多義語 \\
-					\hline \hline
-					BERT+weight & \textbf{27.78}\% & \textbf{61.11}\% & 23.53\% \\
-					BERT & 25.00\% & \textbf{61.11}\% & \textbf{38.24}\% \\
-					embedding & 11.11\% & 50.00\% & 29.41\% \\
-					\hline
-				\end{tabular}
-		\end{table}
+			表\ref{table:SW_kentei_normal}より，全ての手法において
+			$p\geqq0.05$となることから，正規性があるとみなせる．
+			続いて，等分散性の確認を行うためにBartlett検定を行うと，
+			$p=0.4845\geqq0.05$となり，3手法のデータが等分散であるとみなせる．
+			以上より，正規性と等分散性が確認できたので，3群の差の検定として
+			一元配置分散分析を行った．
+			$p=0.143\geqq0.05$となり，3手法の間で結果に有意差はないとみなせる．
 
-		表\ref{table:top-1_hinshi}について，
-		データの正規性を確認するためにShapiro-Wilk検定を行うと,
-		以下の表のようになる．
+			続いて感性語について検定を行う．
+			データ数が18と少ないため，3群の差の検定として
+			ノンパラメトリックなKruskal-Wallis検定を行った．
+			$p=0.367\geqq0.05$となり，3手法の間で結果に有意差はないとみなせる．
 
-		\begin{table}[H]
-			\centering
-			\caption{表\ref{table:top-1_hinshi}のデータに対するShapiro-Wilk検定の結果}
-			\label{table:SW_kentei_top-1_hinshi}
-			\begin{tabular}{ccc}
-				\hline
-				
+			続いて感性多義語について検定を行う．
+			データ数は34である．
+			正規性を確認するためにShapiro-Wilk検定を行うと，
+			BERTで$p=0.002322<0.05$となり，正規性がないとみなせる．
+			よって，3群の差の検定としてノンパラメトリックなKruskal-Wallis検定を行った.
+			$p=0.6732\geqq0.05$となり，3手法の間で結果に有意差はないとみなせる．
 
-		\begin{table}[H]
-			\centering
-			\caption{単語の種類別で分けた実験1のTop-3精度}
-			\label{table:top3_hinshi}
-				\begin{tabular}{cccc}
-					\hline
-					& 一般単語 & 感性語 & 感性多義語 \\
-					\hline \hline
-					BERT+weight & \textbf{58.33}\% & \textbf{77.78}\% & 55.88\% \\
-					BERT & \textbf{58.33}\% & \textbf{77.78}\% & \textbf{67.65}\% \\
-					embedding & 33.33\% & 72.22\% & 64.71\% \\
-					\hline
-				\end{tabular}
-		\end{table}
-
-		\begin{table}[H]
-			\centering
-			\caption{単語の種類別で分けた実験1のコサイン類似度}
-			\label{table:cos_sim_hinshi}
-				\begin{tabular}{cccc}
-					\hline
-					& 一般単語 & 感性語 & 感性多義語 \\
-					\hline \hline
-					BERT+weight & \textbf{0.608} & \textbf{0.728} & 0.555 \\
-					BERT & 0.595 & 0.715 & \textbf{0.567} \\
-					embedding & 0.521 & 0.663 & 0.538 \\
-					\hline
-				\end{tabular}
-		\end{table}
 	\subsection{考察}
 		これから分析を行います．
 		\begin{itemize}
@@ -318,14 +352,14 @@
 		不適切な感情の出力を抑制できているかを，
 		また対象単語について，用いられる文脈が異なっている
 		2つの出力を比較して，文脈を考慮した出力になっているかを
-		それぞれ1(最低)~5(最高)の5段階評価で評価してもらった．
+		それぞれ1(最低)\textasciitilde5(最高)の5段階評価で評価してもらった．
 
 
 	\subsection{実験結果}
 	\begin{table}[H]
 		\centering
 		\caption{実験2の結果}
-		\label{normal_word_result}
+		\label{table:normal_word_result}
 			\begin{tabular}{cccc}
 				\hline
 				& 適切な感情の出力 & 不適切な感情の出力の抑制 & 文脈考慮性 \\
@@ -335,7 +369,77 @@
 				embedding & 3.22 & 2.88 & 2.60 \\
 				\hline
 			\end{tabular}
+	\end{table}
+
+	表\ref{table:normal_word_result}について，各項目毎に
+	手法による差の検定を行った．
+	\subsubsection{「適切な感情の出力」についての検定}
+		3群の差の検定としてKruskal-Wallis検定を行うと，
+		$p=8.93\times10^{-12}<0.05$より有意差があるとみなせる．
+		続いて，Bonferroni法による多重比較を行う．
+		以下，表\ref{table:jikken2_good_Bonferroni}にその結果を示す．
+		\begin{table}[H]
+			\centering
+			\caption{Bonferroni法による多重比較の$p$の値}
+			\label{table:jikken2_good_Bonferroni}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				& BERT+weight & BERT \\
+				\hline
+				BERT & 0.72 & - \\
+				\hline
+				embedding & $4.8\times10^{-8}$ & $2.3\times10^{-10}$ \\
+				\hline
+			\end{tabular}
 		\end{table}
+		表\ref{table:jikken2_good_Bonferroni}より，
+		BERTとembedding, BERT+weightとembeddingにおいて
+		$p<0.05$となり，有意差があるとみなせる．
+	\subsubsection{「不適切な感情の出力の抑制」についての検定}
+		3群の差の検定としてKruskal-Wallis検定を行うと，
+		$p=4.74\times10^{-14}<0.05$より有意差があるとみなせる．
+		続いて，Bonferroni法による多重比較を行う．
+		以下，表\ref{table:jikken2_bad_Bonferroni}にその結果を示す．
+		\begin{table}[H]
+			\centering
+			\caption{Bonferroni法による多重比較の$p$の値}
+			\label{table:jikken2_bad_Bonferroni}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				& BERT+weight & BERT \\
+				\hline
+				BERT & 1 & - \\
+				\hline
+				embedding & $2.3\times10^{-11}$ & $6.7\times10^{-11}$ \\
+				\hline
+			\end{tabular}
+		\end{table}
+		表\ref{table:jikken2_bad_Bonferroni}より，
+		BERTとembedding, BERT+weightとembeddingにおいて
+		$p<0.05$となり，有意差があるとみなせる．
+	\subsubsection{「文脈考慮性」についての検定}
+		3群の差の検定としてKruskal-Wallis検定を行うと，
+		$p=2.1\times10^{-15}<0.05$より有意差があるとみなせる．
+		続いて，Bonferroni法による多重比較を行う．
+		以下，表\ref{table:jikken2_context_Bonferroni}にその結果を示す．
+		\begin{table}[H]
+			\centering
+			\caption{Bonferroni法による多重比較の$p$の値}
+			\label{table:jikken2_context_Bonferroni}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				& BERT+weight & BERT \\
+				\hline
+				BERT & 1 & - \\
+				\hline
+				embedding & $2.3\times10^{-12}$ & $7.4\times10^{-12}$ \\
+				\hline
+			\end{tabular}
+		\end{table}
+		表\ref{table:jikken2_context_Bonferroni}より，
+		BERTとembedding, BERT+weightとembeddingにおいて
+		$p<0.05$となり，有意差があるとみなせる．
+
 	\subsection{考察}
 	これから分析を行います．
 	\begin{itemize}
@@ -358,7 +462,7 @@
 	本手法により得られた対象単語の感情ベクトルについて，
 	それぞれの出力で適切な感情を出力できているか，
 	不適切な感情の出力を抑制できているか，
-	をそれぞれ1(最低)~5(最高)の5段階評価で評価してもらった．
+	をそれぞれ1(最低)\textasciitilde5(最高)の5段階評価で評価してもらった．
 	
 
 	\subsection{実験結果}
@@ -376,6 +480,53 @@
 				\hline
 			\end{tabular}
 	\end{table}
+
+	表\ref{kansei_tagigo_result}について，各項目ごとに手法による差の検定を行った．
+	\subsubsection{「適切な感情の出力」についての検定}
+		3群の差の検定としてKruskal-Wallis検定を行うと，
+		$p=2.09\times10^{-7}<0.05$より有意差があるとみなせる．
+		続いて，Bonferroni法による多重比較を行う．
+		以下，表\ref{table:jikken3_good_Bonferroni}にその結果を示す．
+		\begin{table}[H]
+			\centering
+			\caption{Bonferroni法による多重比較の$p$の値}
+			\label{table:jikken3_good_Bonferroni}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				& BERT+weight & BERT \\
+				\hline
+				BERT & 1 & - \\
+				\hline
+				embedding & $5.07\times10^{-5}$ & $5.90\times10^{-7}$ \\
+				\hline
+			\end{tabular}
+		\end{table}
+		表\ref{table:jikken3_good_Bonferroni}より，
+		BERTとembedding, BERT+weightとembeddingにおいて
+		$p<0.05$となり，有意差があるとみなせる．
+
+	\subsubsection{「不適切な感情の出力の抑制」についての検定}
+		3群の差の検定としてKruskal-Wallis検定を行うと，
+		$p=8.34\times10^{-6}<0.05$より有意差があるとみなせる．
+		続いて，Bonferroni法による多重比較を行う．
+		以下，表\ref{table:jikken3_bad_Bonferroni}にその結果を示す．
+		\begin{table}[H]
+			\centering
+			\caption{Bonferroni法による多重比較の$p$の値}
+			\label{table:jikken3_bad_Bonferroni}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				& BERT+weight & BERT \\
+				\hline
+				BERT & 0.0081 & - \\
+				\hline
+				embedding & $ 5.5\times10^{-6} $ & 0.1992 \\
+				\hline
+			\end{tabular}
+		\end{table}
+		表\ref{table:jikken3_bad_Bonferroni}より，
+		BERT+weightとBERT, BERT+weightとembeddingにおいて
+		$p<0.05$となり，有意差があるとみなせる．
 
 	\subsection{考察}
 	これから分析を行います．
